@@ -13,14 +13,14 @@ $num = $stmt->rowCount();
 
 if($num > 0) {
     $result = array();
-    $result['data'] = array();
+
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $libraryObj = array(
                 "id" => $row['id'],
                 "location" => $row['location'],
                 "name" => $row['name']
             );
-            array_push($result['data'], $libraryObj);
+            array_push($result, $libraryObj);
         
     }
     http_response_code(200);
