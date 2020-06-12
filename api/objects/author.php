@@ -9,8 +9,8 @@ class Author {
     public $gender;
     public $birthday;
 
-    public __construct($db) {
-        $this->conno = $db;
+    public function __construct($db) {
+        $this->conn = $db;
     }
 
     public function read() {
@@ -22,7 +22,8 @@ class Author {
 
     public function readOne() {
         $sql = "SELECT * FROM authors WHERE id=:id";
-        $stmt -> $this->conn->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(":id", $this->id);
         $stmt->execute();
         return $stmt;
     }
@@ -47,6 +48,7 @@ class Author {
         $stmt->bindParam(":nationality", $this->nationality);
         $stmt->bindParam(":gender", $this->gender);
         $stmt->bindParam(":birthday", $this->birthday);
+        $stmt->bindParam(":id", $this->id);
         if($stmt->execute()) {
             return true;
         }

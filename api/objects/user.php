@@ -9,7 +9,7 @@ class User {
     public $age;
     public $birthday;
 
-    public __construct($db) {
+    public function __construct($db) {
         $this->conn = $db;
     }
 
@@ -24,7 +24,7 @@ class User {
         $sql = "SELECT * FROM users WHERE id=:id";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":id", $this->id);
-        $stmt.execute();
+        $stmt->execute();
         return $stmt;
     }
 
@@ -46,9 +46,10 @@ class User {
         $sql = "UPDATE users SET name=:name, lastName=:lastName, age=:age, birthday=:birthday WHERE id=:id";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(":name", $this->name);
-        $stmt->bindParam(":lastName" $this->lastName);
+        $stmt->bindParam(":lastName", $this->lastName);
         $stmt->bindParam(":age", $this->age);
         $stmt->bindParam(":birthday", $this->birthday);
+        $stmt->bindParam(":id", $this->id);
         if($stmt->execute()) {
             return true;
         }
@@ -58,8 +59,8 @@ class User {
 
     public function delete() {
         $sql = "DELETE FROM users WHERE id=:id";
-        $stmt = $this->prepare($sql);
-        $stmt.bindParam(":id", $this->id);
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(":id", $this->id);
         if($stmt->execute()) {
             return true;
         }

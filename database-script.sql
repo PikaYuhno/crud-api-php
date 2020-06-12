@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `authors` (
   `name` varchar(255) NOT NULL,
   `nationality` varchar(255) NOT NULL,
   `gender` varchar(255) NOT NULL,
-  `brithday` date NOT NULL,
+  `birthday` date NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
@@ -58,10 +58,10 @@ CREATE TABLE IF NOT EXISTS `books` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `library`
+-- Tabellenstruktur für Tabelle `libraries`
 --
 
-CREATE TABLE IF NOT EXISTS `library` (
+CREATE TABLE IF NOT EXISTS `libraries` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `location` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `name` varchar(255) NOT NULL,
   `lastName` varchar(255) NOT NULL,
   `age` int(11) NOT NULL,
-  `brithday` date NOT NULL,
+  `birthday` date NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 COMMIT;
