@@ -13,7 +13,6 @@ $num = $stmt->rowCount();
 
 if($num > 0) {
     $result = array();
-
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $libraryObj = array(
                 "id" => $row['id'],

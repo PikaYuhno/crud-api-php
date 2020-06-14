@@ -12,7 +12,7 @@ class DbConnector {
        }
        
        try{
-            DbConnector::$connection = new PDO("mysql:host=localhost;dbname=library", "root", "");
+            DbConnector::$connection = new PDO("mysql:host=db;dbname=library", "root", "");
        } catch(\PDOException $e) {
            echo $e;
        }
