@@ -10,7 +10,6 @@ $author = new Author($db);
 
 $stmt = $author->read();
 $count = $stmt->rowCount();
-echo $count;
 if($count > 0) {
     $authors = array();
     
@@ -29,6 +28,7 @@ if($count > 0) {
     echo json_encode($authors);
 } else {
     http_response_code(404);
+    echo json_encode([]);
 }
 
 

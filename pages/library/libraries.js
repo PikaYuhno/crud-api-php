@@ -1,7 +1,6 @@
 window.onload = async () => {
-    const promise = await fetch('/api/library/read.php');
+    const promise = await fetch('http://localhost:80/api/library/read.php');
     const json = await promise.json();
-    console.log("test");
     console.log(json);
     for(let i = 0; i< json.length; i++) {
         let row = `<tr>
@@ -20,4 +19,8 @@ window.onload = async () => {
 
 function deleteFunc(id){
     console.log(id);
+}
+
+function updateFunc(id) {
+
 }
