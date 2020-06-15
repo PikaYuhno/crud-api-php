@@ -10,7 +10,7 @@ services:
     volumes:
       - ./sql-scripts:/docker-entrypoint-initdb.d
       - ./mysql-data:/var/lib/mysql
-  web:
+  api:
     build: .
     ports:
       - 80:80
@@ -18,3 +18,13 @@ services:
       - db
     volumes:
       - ./:/var/www/html
+  web:
+    build: ./react-app
+    depends_on:
+      - api
+    ports:
+      - 3000:3000
+    volumes:
+      - ./react-app:/usr/src/app
+      - /react-app/node_modules
+    stdin_open: true
