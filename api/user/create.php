@@ -1,7 +1,10 @@
 <?php
 
+
 header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
+header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS'); 
+header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
+
 
 include_once '../objects/user.php';
 include_once '../config/dbConnector.php';
@@ -25,7 +28,8 @@ if($user->create()) {
     );
     echo json_encode($user_item);
 } else {
-    http_response_code(503);
+    http_response_code(200);
+    echo json_encode(array());
 } 
 
 ?>

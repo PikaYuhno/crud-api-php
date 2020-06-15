@@ -23,6 +23,6 @@ if($lib->update()) {
     );
     echo json_encode($updated_item);
 } else {
-    http_response_code(404);
+    http_response_code(200);
 }
 ?>

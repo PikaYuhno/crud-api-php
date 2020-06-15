@@ -23,7 +23,8 @@ if($count > 0) {
     http_response_code(200);
     echo json_encode($author_item);
 } else {
-    http_response_code(404);
+    http_response_code(200);
+    echo json_encode(array());
 }
 
 

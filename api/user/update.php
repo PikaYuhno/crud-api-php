@@ -1,8 +1,8 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
+header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS'); 
+header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');include_once '../objects/user.php';
 
-include_once '../objects/user.php';
 include_once '../config/dbConnector.php';
 $db = DbConnector::getConnection();
 $user = new User($db);
@@ -26,7 +26,8 @@ if($user->update()) {
     );
     echo json_encode($updated_item);
 } else {
-    http_response_code(404);
+    http_response_code(200);
+    echo json_encode(array());
 }
 
 

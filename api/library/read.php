@@ -27,7 +27,7 @@ if($num > 0) {
     echo json_encode($result);
 
 } else {
-    http_response_code(404);
+    http_response_code(200);
     echo json_encode([]);
 }
 
