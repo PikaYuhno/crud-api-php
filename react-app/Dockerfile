@@ -3,6 +3,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
 COPY . .
+RUN ls -l
 RUN npm run build
 COPY ./build/ ./build/
 EXPOSE 3000
