@@ -14,7 +14,7 @@ class UserItem extends Component {
     }
 
     handleDelete = async (e) => {
-        await fetch(`http://localhost:80/api/user/delete.php?id=${this.props.item.id}`);
+        await fetch(`/api/user/delete.php?id=${this.props.item.id}`);
         window.location.reload();
     }
 
