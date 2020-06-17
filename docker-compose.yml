@@ -25,6 +25,6 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./react-app:/usr/src/app
-      - /react-app/node_modules
+      - './react-app:/usr/src/app'
+      - '/usr/src/app/node_modules'
     stdin_open: true
