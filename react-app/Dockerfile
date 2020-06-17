@@ -4,6 +4,6 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 RUN npm run build
-RUN ls -l
+RUN ls -la
 EXPOSE 3000
 CMD ["node", "index.js"]
