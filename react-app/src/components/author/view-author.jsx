@@ -8,7 +8,7 @@ class ViewAuthor extends Component {
         this.state = { data: [] };
     }
     async componentDidMount() {
-        const promise = await fetch(`http://localhost:80/api/author/read.php`);
+        const promise = await fetch(`/api/author/read.php`);
         const json = await promise.json();
         this.setState({data: json});
     }

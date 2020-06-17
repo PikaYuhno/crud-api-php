@@ -6,7 +6,7 @@ class ViewUser extends Component {
         this.state = { data: [] };
     }
     async componentDidMount() {
-        const promise = await fetch('http://localhost:80/api/user/read.php');
+        const promise = await fetch('/api/user/read.php');
         const json = await promise.json();
         console.log(json);
         this.setState({data: json});

@@ -17,7 +17,7 @@ class AddAuthor extends Component {
         e.preventDefault();
         let {author_name, author_nationality, author_gender, author_birthday} = this.state;
         console.log(this.state);
-        await fetch(`http://localhost:80/api/author/create.php`, {
+        await fetch(`/api/author/create.php`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"  

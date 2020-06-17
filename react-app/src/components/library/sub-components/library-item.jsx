@@ -14,7 +14,7 @@ class LibraryItem extends Component {
     }
 
     handleDelete = async (e) => {
-        await fetch(`http://localhost:80/api/library/delete.php?id=${this.props.item.id}`);
+        await fetch(`/api/library/delete.php?id=${this.props.item.id}`);
         window.location.reload();
     }
 

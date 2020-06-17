@@ -13,7 +13,7 @@ class AuthorItem extends Component {
     }
 
     handleDelete = async () => {
-        await fetch(`http://localhost:80/api/author/delete.php?id=${this.props.item.id}`);
+        await fetch(`/api/author/delete.php?id=${this.props.item.id}`);
         window.location.reload();
     }
 

@@ -9,7 +9,7 @@ class ViewLibrary extends Component {
         this.state = { data: [] };
     }
     async componentDidMount() {
-        const promise = await fetch('http://localhost:80/api/library/read.php');
+        const promise = await fetch('/api/library/read.php');
         const json = await promise.json();
         console.log(json);
         this.setState({data: json});

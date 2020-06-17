@@ -15,7 +15,7 @@ class AddLibrary extends Component {
         e.preventDefault();
         let {lib_name, lib_location} = this.state;
         console.log(this.state);
-        await fetch(`http://localhost:80/api/library/create.php`, {
+        await fetch(`/api/library/create.php`, {
             method: 'POST',
             headers: {
               "Content-Type": "application/json"  
