@@ -5,4 +5,4 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 3000, () => console.log(`Listening on ${process.env.PORT || 3000}`));
