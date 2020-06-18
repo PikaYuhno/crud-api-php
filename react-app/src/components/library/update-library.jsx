@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Navbar from '../navbar';
 
+import dotenv from 'dotenv';
+dotenv.config();
 class UpdateLibrary extends Component {
     constructor(props) {
         super(props);
@@ -10,7 +12,7 @@ class UpdateLibrary extends Component {
     }
 
     async componentDidMount() {
-        const promise = await fetch(`/api/library/read_one.php?id=${this.props.match.params.id}`);
+        const promise = await fetch(`${process.env.FRONTENDIP}/api/library/read_one.php?id=${this.props.match.params.id}`);
         const json = await promise.json();
         this.setState({libraryItem: json});
     }
@@ -23,7 +25,7 @@ class UpdateLibrary extends Component {
         e.preventDefault();
         let {lib_name, lib_location} = this.state;
         console.log(this.state);
-        await fetch(`/api/library/update.php?id=${this.props.match.params.id}`, {
+        await fetch(`${process.env.FRONTENDIP}/api/library/update.php?id=${this.props.match.params.id}`, {
             method: 'POST',
             headers: {
               "Content-Type": "application/json"  

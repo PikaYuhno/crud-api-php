@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import dotenv from 'dotenv';
+dotenv.config();
 
 class AuthorItem extends Component {
     constructor(props) {
@@ -13,7 +15,7 @@ class AuthorItem extends Component {
     }
 
     handleDelete = async () => {
-        await fetch(`/api/author/delete.php?id=${this.props.item.id}`);
+        await fetch(`${process.env.FRONTENDIP}/api/author/delete.php?id=${this.props.item.id}`);
         window.location.reload();
     }
 

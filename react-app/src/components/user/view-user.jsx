@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import dotenv from 'dotenv';
+dotenv.config();
 
 class ViewUser extends Component {
     constructor(props) {
@@ -6,7 +8,7 @@ class ViewUser extends Component {
         this.state = { data: [] };
     }
     async componentDidMount() {
-        const promise = await fetch('/api/user/read.php');
+        const promise = await fetch(`${process.env.FRONTENDIP}/api/user/read.php`);
         const json = await promise.json();
         console.log(json);
         this.setState({data: json});
