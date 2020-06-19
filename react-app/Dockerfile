@@ -1,9 +1,12 @@
-FROM node:12
+FROM node:12 as builder
 WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
 COPY . .
 RUN npm run build
-RUN ls -la
-EXPOSE 3000
-CMD ["node", "index.js"]
+
+FROM nginx
+WORKDIR /usr/share/nginx/html
+
+COPY --from=builder /usr/src/app/build .
+COPY --from=builder /usr/src/app/nginx.conf /etc/nginx/conf.d/default.conf  

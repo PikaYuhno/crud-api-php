@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from '../navbar';
-import dotenv from 'dotenv';
-dotenv.config();
+
 class AddLibrary extends Component {
     constructor() {
         super();
@@ -17,7 +16,7 @@ class AddLibrary extends Component {
         e.preventDefault();
         let {lib_name, lib_location} = this.state;
         console.log(this.state);
-        await fetch(`${process.env.FRONTENDIP}/api/library/create.php`, {
+        await fetch(`/api/library/create.php`, {
             method: 'POST',
             headers: {
               "Content-Type": "application/json"  

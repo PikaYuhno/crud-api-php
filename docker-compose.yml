@@ -23,7 +23,7 @@ services:
     depends_on:
       - api
     ports:
-      - 3000:3000
+      - 3000:80
     volumes:
       - './react-app:/usr/src/app'
       - '/usr/src/app/node_modules'

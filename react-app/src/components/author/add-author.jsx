@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Navbar from '../navbar';
-import dotenv from 'dotenv';
-dotenv.config();
 class AddAuthor extends Component {
     constructor(props) {
         super(props);
@@ -18,7 +16,7 @@ class AddAuthor extends Component {
         e.preventDefault();
         let {author_name, author_nationality, author_gender, author_birthday} = this.state;
         console.log(this.state);
-        await fetch(`${process.env.FRONTENDIP}/api/author/create.php`, {
+        await fetch(`/api/author/create.php`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"  

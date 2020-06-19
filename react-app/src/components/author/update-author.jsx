@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Navbar from '../navbar';
-import dotenv from 'dotenv';
-dotenv.config();
 class UpdateAuthor extends Component {
     constructor(props) {
         super(props);
@@ -11,7 +9,7 @@ class UpdateAuthor extends Component {
     }
 
     async componentDidMount() {
-        const promise = await fetch(`${process.env.FRONTENDIP}/api/author/read_one.php?id=${this.props.match.params.id}`);
+        const promise = await fetch(`/api/author/read_one.php?id=${this.props.match.params.id}`);
         const json = await promise.json();
         this.setState({authorItem: json});
     }
@@ -24,7 +22,7 @@ class UpdateAuthor extends Component {
         e.preventDefault();
         let {author_name, author_nationality, author_gender, author_birthday} = this.state;
         console.log(this.state);
-        await fetch(`${process.env.FRONTENDIP}/api/author/update.php?id=${this.props.match.params.id}`, {
+        await fetch(`/api/author/update.php?id=${this.props.match.params.id}`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"  

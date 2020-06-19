@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import AuthorItem from './sub-components/author-item';
 import Navbar from '../navbar';
 import {Table} from 'react-bootstrap'; 
-import dotenv from 'dotenv';
-dotenv.config();
 class ViewAuthor extends Component {
     constructor(props) {
         super(props);
         this.state = { data: [] };
     }
     async componentDidMount() {
-        const promise = await fetch(`${process.env.FRONTENDIP}/api/author/read.php`);
+        const promise = await fetch(`/api/author/read.php`);
         const json = await promise.json();
         this.setState({data: json});
     }

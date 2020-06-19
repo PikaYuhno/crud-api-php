@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import {Table} from 'react-bootstrap';
 import Navbar from '../navbar';
 import LibraryItem from './sub-components/library-item';
-import dotenv from 'dotenv';
-dotenv.config();
 
 class ViewLibrary extends Component {
     constructor(props) {
@@ -11,7 +9,8 @@ class ViewLibrary extends Component {
         this.state = { data: [] };
     }
     async componentDidMount() {
-        const promise = await fetch(`${process.env.FRONTENDIP}/api/library/read.php`);
+        const promise = await fetch(`/api/library/read.php`);
+        console.log("TEsT");
         const json = await promise.json();
         console.log(json);
         this.setState({data: json});
